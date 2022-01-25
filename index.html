@@ -5,6 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <script src="/js/jquery.js"></script>
     <title>Random Chihuahua</title>
 
@@ -12,16 +15,15 @@
         * {
             box-sizing: border-box;
             text-align: center;
+            font-family: 'Permanent Marker', cursive;
         }
 
         body {
-            background-size: 100%;
             background-color: black;
-            background-repeat: no-repeat;
         }
 
         #kanye {
-            margin-top: 500px;
+            margin-top: 20px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -36,12 +38,17 @@
             margin-top: 100px;
             margin-bottom: 10px;
         }
+
+        img{
+            width: 100%;
+        }
     </style>
 
 </head>
 
 <body>
-<p id="kanye">Ye</p>
+<img src="#" alt="chihuahua">
+<p id="kanye"></p>
 <p> ~ Kanye</p>
 <footer>&copy;2022 nelson delpozo</footer>
 
@@ -50,7 +57,7 @@
     let dog = $.get("https://dog.ceo/api/breed/chihuahua/images/random", {}).done(function (data) {
         console.log("dog:", data.message);
         dog = data.message;
-        $('body').css("background-image", "url(" + dog + ")");
+        $('img').attr("src", dog);
     });
     $.get("https://api.kanye.rest/", {}).done(function (data) {
         console.log("today's Kanye quote:", data.quote);
