@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/js/jquery.js"></script>
+    <title>Random Chihuahua</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        body {
+            background-size: 100%;
+            background-color: black;
+            background-repeat: no-repeat;
+        }
+
+        #kanye {
+            margin-top: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        p {
+            color: antiquewhite;
+            font-size: 3em;
+        }
+
+        footer {
+            color: antiquewhite;
+            margin-top: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+<p id="kanye">Ye</p>
+<p> ~ Kanye</p>
+<footer>&copy;2022 nelson delpozo</footer>
+
+<script>
+
+    let dog = $.get("https://dog.ceo/api/breed/chihuahua/images/random", {}).done(function (data) {
+        console.log("dog:", data.message);
+        dog = data.message;
+        $('body').css("background-image", "url(" + dog + ")");
+    });
+    $.get("https://api.kanye.rest/", {}).done(function (data) {
+        console.log("today's Kanye quote:", data.quote);
+        document.getElementById('kanye').innerHTML = '<h2>' + data.quote + '</h2>'
+    });
+</script>
+
+</body>
+</html>
